@@ -1,5 +1,5 @@
-# qps-utils :fire:
-An elegant way to parse and manipulate query-params in javascript. <br>
+# qps-utils
+:fire: An elegant way to parse and manipulate query-params in javascript. :fire:<br>
 
 ## Usage
 

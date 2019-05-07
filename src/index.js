@@ -7,7 +7,7 @@ function constructUrl(queryParams) {
     delimiter = '';
 
   const keyValueMap = isUndefinedOrNull(queryParams) ? this.qMap : queryParams;
-  if (isUndefinedOrNull(this.qMap) && !isUndefinedOrNull(queryParams)) {    
+  if (isUndefinedOrNull(keyValueMap)) {    
     return '';
   }
 

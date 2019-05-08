@@ -1,8 +1,8 @@
 {
   "name": "qps-utils",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "An elegant way to parse and manipulate query-params in javascript",
-  "main": "./build/qps-utils.js",
+  "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "clear && npm run build && node ./test/test-run.js"

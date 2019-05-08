@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'qps-utils.js',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     library: 'qpsUtils',    
     libraryTarget: 'umd',
     umdNamedDefine: true,

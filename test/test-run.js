@@ -1,4 +1,4 @@
-const qps = require('../build/qps-utils');
+const qps = require('../test/qps-utils');
 
 const url = qps
   .add('sort', 'asc')

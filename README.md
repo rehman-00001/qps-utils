@@ -1,6 +1,10 @@
 # qps-utils
 :fire: An elegant way to parse and manipulate query-params in javascript. :fire:<br>
 
+## Installation <br>
+`npm install --save qps-utils` <br>
+or <br>
+`yarn add qps-utils`  <br>
 ## Usage
 
 ```

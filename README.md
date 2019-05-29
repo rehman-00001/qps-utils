@@ -1,19 +1,28 @@
 # qps-utils
+
 :fire: An elegant way to parse and manipulate query-params in javascript. :fire:<br>
 
-## Installation 
+## Installation
 
-`npm install --save qps-utils` 
- or 
-`yarn add qps-utils` 
+`npm install --save qps-utils`
+or
+`yarn add qps-utils`
+
+## Demo
+
+Try it out here: <br>
+<a href="https://codesandbox.io/s/optimistic-cloud-9rc3r?expanddevtools=1&fontsize=14&hidenavigation=1">
+<img alt="Edit qps-utils-demo" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
 
 ## Usage
 
 ```
-import qpsUtils from 'qps-utils'; 
+import qpsUtils from 'qps-utils';
 ```
 
 #### 1) Construct a query param url from an object
+
 ```
 const params = {
   'id': '341',
@@ -25,6 +34,7 @@ const url = qpsUtils.construct(params);
 
 console.log(url); //prints: 'id=341&name=john&color=purple'
 ```
+
 <br>
 
 #### 2) Construct a complete url from an object by specifying the `baseUrl`
@@ -39,7 +49,7 @@ const params = {
 const url = qpsUtils.baseUrl('https://example.com')
                 .construct(params);
 
-console.log(url); 
+console.log(url);
 //prints: 'https://example.com?id=341&name=john&color=purple'
 ```
 
@@ -53,12 +63,11 @@ const url = qpsUtils
   .add('version', '1.0.0')
   .construct();
 
-console.log(url); 
+console.log(url);
 //prints: 'mode=production&version=1.0.0'
 ```
 
 <br>
-
 
 #### 4) With `baseUrl`:
 
@@ -70,12 +79,11 @@ const url = qpsUtils
   .add('public', 'yes')
   .construct();
 
-console.log(url); 
+console.log(url);
 //prints: 'https://www.example.com?mode=production&version=1&public=yes'
 ```
 
 <br>
-
 
 #### 5) Parse a valid URL and retrive its query params as a map (javascript object)
 
@@ -93,6 +101,7 @@ console.log(params);
 <br>
 
 #### 6) Get an individual value for a given key
+
 ```
 const url =
   'https://example.com?mode=production&version=1&public=true';
@@ -106,8 +115,8 @@ console.log(isPublic);
 
 <br>
 
-
 #### 7) Add new keys to the url
+
 ```
 const url =
   'https://example.com?mode=production&version=1&public=true';
@@ -122,11 +131,12 @@ console.log(updatedUrl);
 // prints: https://example.com?mode=production&version=1&public=true&license=MIT&stars=0
 ```
 
-*Note: If any existing key present, calling `add()` function updates that existing `key`'s value*
+_Note: If any existing key present, calling `add()` function updates that existing `key`'s value_
 
 <br>
 
 #### 8) Remove keys from the URL
+
 ```
 const url =
   'https://example.com?mode=production&version=1&public=true';
@@ -146,6 +156,7 @@ console.log(updatedUrl);
 <br>
 
 #### 9) Update the baseUrl itself
+
 ```
 const url =
   'https://example.com?mode=production&version=1&public=true';
@@ -167,14 +178,14 @@ console.log(updatedUrl);
 
 # API
 
-##### qpsUtils 
+##### qpsUtils
+
 An object that exposes these functions:
 `add()`, `baseUrl()`, `construct()`, `parse()`
 
 <br>
 
-### 1) Syntax: qpsUtils.add(  *string:* key  ,  *string:* value  )
-
+### 1) Syntax: qpsUtils.add( _string:_ key , _string:_ value )
 
 ##### Description
 
@@ -183,32 +194,32 @@ Subsequent calls to this method appends key & value to the url string.
 
 ##### Parameters
 
-*{string}* key,   *{string}* value - (required)
+_{string}_ key, _{string}_ value - (required)
 
 ##### Returns
 
-*{object}* handle - Exposes two functions `add()`, `construct()`
+_{object}_ handle - Exposes two functions `add()`, `construct()`
 
 <br>
 
-### 2) Syntax: qpsUtils.baseUrl(  *string:*  url  )
+### 2) Syntax: qpsUtils.baseUrl( _string:_ url )
 
 ##### Description
 
-Sets the baseUrl and returns a `handle`. 
+Sets the baseUrl and returns a `handle`.
 Using that handle's `add` method, query parameters can be appended and with `construct` method, the complete url can be obtained.
 
 ##### Parameters
 
-*{string}* : baseUrl - (required) A string that represents the endpoint/baseUrl.
+_{string}_ : baseUrl - (required) A string that represents the endpoint/baseUrl.
 
 ##### Returns
 
-*{object}* handle - Exposes two functions `add()`, `construct()`
+_{object}_ handle - Exposes two functions `add()`, `construct()`
 
 <br>
 
-### 3) Syntax:  qpsUtils.construct( *object:* paramsObj )
+### 3) Syntax: qpsUtils.construct( _object:_ paramsObj )
 
 ##### Description
 
@@ -216,37 +227,36 @@ Constructs the query param url from the given javascript object.
 
 ##### Parameters
 
-*{object}* : paramsObject - (optional) An object with keys & values with which the url is formed.
+_{object}_ : paramsObject - (optional) An object with keys & values with which the url is formed.
 
 ##### Returns
 
-*{string}* : url - representing query params.
-
+_{string}_ : url - representing query params.
 
 <br>
 
-#### 4) Syntax:  qpsUtils.parse( *string:* url )
+#### 4) Syntax: qpsUtils.parse( _string:_ url )
 
 ##### Description
 
-Reads the given url and internally constructs a map of its query parameters, if any 
+Reads the given url and internally constructs a map of its query parameters, if any
 available.
 
 ##### Parameters
 
-*{string}* : url - (required) Url with query parameters that needs to be manipulated
+_{string}_ : url - (required) Url with query parameters that needs to be manipulated
 
 ##### Returns
 
-*{object}* : handle - Exposes two functions: `baseUrl()`, `params()`
+_{object}_ : handle - Exposes two functions: `baseUrl()`, `params()`
 
 <br>
 
-#### 5) Syntax: qpsUtils.parse( *string:* url ).baseUrl()
+#### 5) Syntax: qpsUtils.parse( _string:_ url ).baseUrl()
 
 ##### Description
 
-Returns the base URL string in the input that is passed to the `parse()` function. 
+Returns the base URL string in the input that is passed to the `parse()` function.
 
 ##### Parameters
 
@@ -254,25 +264,27 @@ None
 
 ##### Returns
 
-*{string}* : baseUrl - substring of the url string from the beginning till the point where '?' is found.
+_{string}_ : baseUrl - substring of the url string from the beginning till the point where '?' is found.
 
 <br>
 
-#### 6) Syntax: qpsUtils.parse( *string:* url ).params()
+#### 6) Syntax: qpsUtils.parse( _string:_ url ).params()
 
 ##### Description
 
 Returns a `handle` that allows manipulation of the url which was passed to `parse()` function.
+
 ##### Parameters
 
 None
+
 ##### Returns
 
-*{object}* : handle - Exposes these functions: `map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
+_{object}_ : handle - Exposes these functions: `map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
 
 <br>
 
-#### 7) Syntax: qpsUtils.parse( *string:* url ).params().map()
+#### 7) Syntax: qpsUtils.parse( _string:_ url ).params().map()
 
 ##### Description
 
@@ -284,11 +296,11 @@ None
 
 ##### Returns
 
-*{object}* : queryParams - Javascript object which the keys & values represent the keys & values in the url query parameters
+_{object}_ : queryParams - Javascript object which the keys & values represent the keys & values in the url query parameters
 
 <br>
 
-#### 7) Syntax: qpsUtils.parse( *string:* url ).params().get( *string:* key )
+#### 7) Syntax: qpsUtils.parse( _string:_ url ).params().get( _string:_ key )
 
 ##### Description
 
@@ -296,15 +308,15 @@ Returns a string which is the value for the given key as per the input url.
 
 ##### Parameters
 
-*{string}*: key - A string that represents the key as query params in the url.
+_{string}_: key - A string that represents the key as query params in the url.
 
 ##### Returns
 
-*{string}* : value - A string that represents the value for the given key in the input url. If key not present, returns the empty string.
+_{string}_ : value - A string that represents the value for the given key in the input url. If key not present, returns the empty string.
 
 <br>
 
-#### 8) Syntax: qpsUtils.parse( *string:* url ).params().add( *string:* key ,  *string:* value )
+#### 8) Syntax: qpsUtils.parse( _string:_ url ).params().add( _string:_ key , _string:_ value )
 
 ##### Description
 
@@ -312,17 +324,16 @@ Adds the new pair of query params to the map maintained internally. If the key w
 
 ##### Parameters
 
-*{string}* key, *{string}* value - (required)
+_{string}_ key, _{string}_ value - (required)
 
 ##### Returns
 
-*{object}* : handle - which exposes the same set of functions like the one returned by `params()` function:
- `map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
-
+_{object}_ : handle - which exposes the same set of functions like the one returned by `params()` function:
+`map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
 
 <br>
 
-#### 9) Syntax: qpsUtils.parse( *string:* url ).params().remove( *string:* key )
+#### 9) Syntax: qpsUtils.parse( _string:_ url ).params().remove( _string:_ key )
 
 ##### Description
 
@@ -330,18 +341,18 @@ Removes the key, value pair from the map maintained internally.
 
 ##### Parameters
 
-*{string}* key, *{string}* value - (required)
+_{string}_ key, _{string}_ value - (required)
 
 ##### Returns
 
-*{object}* : handle - which exposes the same set of functions like the one returned by `params()` 
+_{object}_ : handle - which exposes the same set of functions like the one returned by `params()`
 function
 <br>
- `map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
- 
+`map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
+
 <br>
 
-#### 10) Syntax: qpsUtils.parse( *string:* url ).params().changeBaseUrl( *string:* newUrl )
+#### 10) Syntax: qpsUtils.parse( _string:_ url ).params().changeBaseUrl( _string:_ newUrl )
 
 ##### Description
 
@@ -349,12 +360,9 @@ Updates the baseUrl with the new one.
 
 ##### Parameters
 
-*{string}* newUrl - (required)
+_{string}_ newUrl - (required)
 
 ##### Returns
 
-*{object}* : handle - which exposes the same set of functions like the one returned by `params()` function:<br>
- `map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
-
-
-
+_{object}_ : handle - which exposes the same set of functions like the one returned by `params()` function:<br>
+`map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`

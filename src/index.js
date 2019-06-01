@@ -1,3 +1,5 @@
+let arrayFormat = 'duplicateKeys';
+
 function isUndefinedOrNull(object) {
   return object === null || object === undefined;
 }
@@ -7,7 +9,7 @@ function constructUrl(queryParams) {
     delimiter = '';
 
   const keyValueMap = isUndefinedOrNull(queryParams) ? this.qMap : queryParams;
-  if (isUndefinedOrNull(keyValueMap)) {    
+  if (isUndefinedOrNull(keyValueMap)) {
     return '';
   }
 
@@ -21,13 +23,50 @@ function constructUrl(queryParams) {
 
   const keysList = Object.keys(keyValueMap);
   keysList.forEach(key => {
-    url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(
-      keyValueMap[key]
-    )}`;
+    const values = keyValueMap[key];
+    if (Array.isArray(values)) {
+      url += constructArrayOfValues(delimiter, key, values);
+    } else {
+      url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(
+        values
+      )}`;
+    }
     delimiter = '&';
   });
 
   return url;
+}
+
+function constructArrayOfValues(delimiter, key, values) {
+  let url = '';
+  const encodedKey = encodeURIComponent(key);
+  switch (arrayFormat) {
+    case 'squareBrackets':
+      values.forEach(value => {
+        const encodedVal = encodeURIComponent(value);
+        url += `${delimiter}${encodedKey}[]=${encodedVal}`;
+        delimiter = '&';
+      });
+      return url;
+    case 'index':
+      values.forEach((value, index) => {
+        const encodedVal = encodeURIComponent(value);
+        url += `${delimiter}${encodedKey}[${index}]=${encodedVal}`;
+        delimiter = '&';
+      });
+      return url;
+    case 'comma':
+      url += `${encodedKey}=${values.join(',')}`;
+      return url;
+    case 'duplicateKeys':
+    default:
+      values.forEach(value => {
+        const encodedVal = encodeURIComponent(value);
+        url += `${delimiter}${encodedKey}=${encodedVal}`;
+        delimiter = '&';
+      });
+      return url;
+  }
 }
 
 function add(key, value) {
@@ -131,4 +170,16 @@ function parseQueryString() {
   return handles;
 }
 
-export { add, parse, baseUrl, constructUrl as construct };
+function useArrayFormat(format) {
+  arrayFormat = format;
+  return this;
+}
+
+export {
+  arrayFormat,
+  add,
+  parse,
+  baseUrl,
+  constructUrl as construct,
+  useArrayFormat
+};

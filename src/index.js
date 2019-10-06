@@ -104,10 +104,12 @@ function parseQueryString() {
 
   const { qMap } = context;
   queries.forEach(query => {
-    const keyValuePair = query.split('=');
-    qMap[decodeURIComponent(keyValuePair[0])] = decodeURIComponent(
-      keyValuePair[1]
-    );
+    const keyValuePair = query.split('=').map(val => {
+        return decodeURIComponent(val);
+    });
+    qMap[keyValuePair[0]] = isUndefinedOrNull(qMap[keyValuePair[0]]) ?
+          [ keyValuePair[1] ] :
+          [ keyValuePair[1], ...qMap[keyValuePair[0]] ];
   });
 
   const handles = {

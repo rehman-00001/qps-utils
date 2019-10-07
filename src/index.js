@@ -122,7 +122,9 @@ function parseQueryString() {
     });
     qMap[keyValuePair[0]] = isUndefinedOrNull(qMap[keyValuePair[0]]) ?
           keyValuePair[1] :
-          [ keyValuePair[1], ...qMap[keyValuePair[0]] ];
+          Array.isArray(qMap[keyValuePair[0]]) ?
+          [ keyValuePair[1], ...qMap[keyValuePair[0]] ] :
+          [ keyValuePair[1], qMap[keyValuePair[0]] ]
   });
 
   const handles = {

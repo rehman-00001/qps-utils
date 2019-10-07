@@ -21,10 +21,10 @@ function constructUrl(queryParams) {
 
   const keysList = Object.keys(keyValueMap);
   keysList.forEach(key => {
-    url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(
-      keyValueMap[key]
-    )}`;
-    delimiter = '&';
+    keyValueMap[key].forEach(val => {
+      url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(val)}`;
+      delimiter = '&';
+    });
   });
 
   return url;

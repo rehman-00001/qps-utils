@@ -1,4 +1,5 @@
 # qps-utils
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 :fire: An elegant way to parse and manipulate query-params in javascript. :fire:<br>
 
@@ -366,3 +367,19 @@ _{string}_ newUrl - (required)
 
 _{object}_ : handle - which exposes the same set of functions like the one returned by `params()` function:<br>
 `map()`, `get()`, `add()`, `remove()`, `changeBaseUrl()`, `construct()`
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/bautistaaa"><img src="https://avatars0.githubusercontent.com/u/3660667?v=4" width="100px;" alt="bautistaaa"/><br /><sub><b>bautistaaa</b></sub></a><br /><a href="#infra-bautistaaa" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/rehman-00001/qps-utils/commits?author=bautistaaa" title="Tests">⚠️</a> <a href="https://github.com/rehman-00001/qps-utils/commits?author=bautistaaa" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

@@ -6,7 +6,18 @@ function constructUrl(queryParams) {
   let url = '',
     delimiter = '';
 
-  const keyValueMap = isUndefinedOrNull(queryParams) ? this.qMap : queryParams;
+  let keyValueMap;
+  if (isUndefinedOrNull(queryParams)) {
+    keyValueMap = this.qMap;
+  }
+  else {
+    keyValueMap = queryParams;
+    Object.keys(keyValueMap).forEach(key => {
+      if (!Array.isArray(keyValueMap[key]))
+        keyValueMap[key] = [ keyValueMap[key] ];
+    });
+  }
+
   if (isUndefinedOrNull(keyValueMap)) {    
     return '';
   }
@@ -39,7 +50,9 @@ function add(key, value) {
 
   const handles = {
     add: (key, value) => {
-      context.qMap[key] = value;
+      context.qMap[key] = isUndefinedOrNull(context.qMap[key]) ?
+            [ value ]:
+            [ value, ...context.qMap[key] ];
       return handles;
     },
     construct: constructUrl.bind(context)
@@ -108,7 +121,7 @@ function parseQueryString() {
         return decodeURIComponent(val);
     });
     qMap[keyValuePair[0]] = isUndefinedOrNull(qMap[keyValuePair[0]]) ?
-          [ keyValuePair[1] ] :
+          keyValuePair[1] :
           [ keyValuePair[1], ...qMap[keyValuePair[0]] ];
   });
 

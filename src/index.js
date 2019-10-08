@@ -6,7 +6,18 @@ function constructUrl(queryParams) {
   let url = '',
     delimiter = '';
 
-  const keyValueMap = isUndefinedOrNull(queryParams) ? this.qMap : queryParams;
+  let keyValueMap;
+  if (isUndefinedOrNull(queryParams)) {
+    keyValueMap = this.qMap;
+  }
+  else {
+    keyValueMap = queryParams;
+    Object.keys(keyValueMap).forEach(key => {
+      if (!Array.isArray(keyValueMap[key]))
+        keyValueMap[key] = [ keyValueMap[key] ];
+    });
+  }
+
   if (isUndefinedOrNull(keyValueMap)) {    
     return '';
   }
@@ -21,10 +32,10 @@ function constructUrl(queryParams) {
 
   const keysList = Object.keys(keyValueMap);
   keysList.forEach(key => {
-    url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(
-      keyValueMap[key]
-    )}`;
-    delimiter = '&';
+    keyValueMap[key].forEach(val => {
+      url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(val)}`;
+      delimiter = '&';
+    });
   });
 
   return url;
@@ -39,7 +50,9 @@ function add(key, value) {
 
   const handles = {
     add: (key, value) => {
-      context.qMap[key] = value;
+      context.qMap[key] = isUndefinedOrNull(context.qMap[key]) ?
+            [ value ]:
+            [ value, ...context.qMap[key] ];
       return handles;
     },
     construct: constructUrl.bind(context)
@@ -104,10 +117,14 @@ function parseQueryString() {
 
   const { qMap } = context;
   queries.forEach(query => {
-    const keyValuePair = query.split('=');
-    qMap[decodeURIComponent(keyValuePair[0])] = decodeURIComponent(
-      keyValuePair[1]
-    );
+    const keyValuePair = query.split('=').map(val => {
+        return decodeURIComponent(val);
+    });
+    qMap[keyValuePair[0]] = isUndefinedOrNull(qMap[keyValuePair[0]]) ?
+          keyValuePair[1] :
+          Array.isArray(qMap[keyValuePair[0]]) ?
+          [ keyValuePair[1], ...qMap[keyValuePair[0]] ] :
+          [ keyValuePair[1], qMap[keyValuePair[0]] ]
   });
 
   const handles = {

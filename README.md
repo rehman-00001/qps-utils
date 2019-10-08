@@ -1,5 +1,5 @@
 # qps-utils
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 
 :fire: An elegant way to parse and manipulate query-params in javascript. :fire:<br>
 
@@ -378,6 +378,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/bautistaaa"><img src="https://avatars0.githubusercontent.com/u/3660667?v=4" width="100px;" alt="bautistaaa"/><br /><sub><b>bautistaaa</b></sub></a><br /><a href="#infra-bautistaaa" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/rehman-00001/qps-utils/commits?author=bautistaaa" title="Tests">⚠️</a> <a href="https://github.com/rehman-00001/qps-utils/commits?author=bautistaaa" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/tiago154"><img src="https://avatars2.githubusercontent.com/u/10531605?v=4" width="100px;" alt="Tiago Santos Da Silva"/><br /><sub><b>Tiago Santos Da Silva</b></sub></a><br /><a href="https://github.com/rehman-00001/qps-utils/commits?author=tiago154" title="Code">💻</a></td>
+    <td align="center"><a href="https://piyo.cafe"><img src="https://avatars3.githubusercontent.com/u/40352447?v=4" width="100px;" alt="Jihoon Yang"/><br /><sub><b>Jihoon Yang</b></sub></a><br /><a href="https://github.com/rehman-00001/qps-utils/commits?author=lanpai" title="Code">💻</a></td>
   </tr>
 </table>
 

@@ -3,10 +3,12 @@
   "version": "1.0.3",
   "description": "An elegant way to parse and manipulate query-params in javascript",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "test": "clear && npm run build && node ./test/test-run.js",
-    "test:unit": "jest",
+    "test": "clear && jest --coverage",
+    "test:watch": "clear && jest --watch --coverage",
+    "test:examples": "clear && npm run build && node ./examples/example.js",
     "coverage": "http-server coverage/lcov-report/"
   },
   "repository": {
@@ -32,9 +34,11 @@
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "@types/jest": "^24.0.18",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.5",
     "eslint": "^5.16.0",
     "eslint-loader": "^2.1.2",

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1570721959823" clover="3.2.0">
+  <project timestamp="1570721959823" name="All files">
+    <metrics statements="55" coveredstatements="55" conditionals="17" coveredconditionals="17" methods="16" coveredmethods="16" elements="88" coveredelements="88" complexity="0" loc="55" ncloc="55" packages="1" files="6" classes="6"/>
+    <file name="add.js" path="/home/abdul/Code/Web/qps-utils/src/add.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="10" count="3" type="stmt"/>
+      <line num="12" count="3" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="18" count="3" type="stmt"/>
+    </file>
+    <file name="baseUrl.js" path="/home/abdul/Code/Web/qps-utils/src/baseUrl.js">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="18" count="4" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="26" count="4" type="stmt"/>
+    </file>
+    <file name="constructUrl.js" path="/home/abdul/Code/Web/qps-utils/src/constructUrl.js">
+      <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+      <line num="4" count="11" type="stmt"/>
+      <line num="5" count="11" type="stmt"/>
+      <line num="7" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="13" count="10" type="cond" truecount="4" falsecount="0"/>
+      <line num="14" count="7" type="stmt"/>
+      <line num="16" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="6" type="stmt"/>
+      <line num="21" count="10" type="stmt"/>
+      <line num="22" count="10" type="stmt"/>
+      <line num="23" count="19" type="stmt"/>
+      <line num="26" count="19" type="stmt"/>
+      <line num="29" count="10" type="stmt"/>
+    </file>
+    <file name="index.js" path="/home/abdul/Code/Web/qps-utils/src/index.js">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+    </file>
+    <file name="parse.js" path="/home/abdul/Code/Web/qps-utils/src/parse.js">
+      <metrics statements="24" coveredstatements="24" conditionals="3" coveredconditionals="3" methods="8" coveredmethods="8"/>
+      <line num="5" count="8" type="cond" truecount="1" falsecount="0"/>
+      <line num="7" count="8" type="stmt"/>
+      <line num="8" count="8" type="stmt"/>
+      <line num="9" count="8" type="stmt"/>
+      <line num="11" count="8" type="stmt"/>
+      <line num="16" count="8" type="stmt"/>
+      <line num="17" count="8" type="stmt"/>
+      <line num="18" count="15" type="stmt"/>
+      <line num="19" count="15" type="stmt"/>
+      <line num="24" count="8" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="28" count="3" type="stmt"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="32" count="2" type="stmt"/>
+      <line num="33" count="2" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="42" count="8" type="stmt"/>
+      <line num="46" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="49" count="10" type="stmt"/>
+      <line num="54" count="10" type="stmt"/>
+      <line num="58" count="10" type="stmt"/>
+    </file>
+    <file name="utils.js" path="/home/abdul/Code/Web/qps-utils/src/utils.js">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="1" count="4" type="stmt"/>
+      <line num="2" count="22" type="cond" truecount="2" falsecount="0"/>
+    </file>
+  </project>
+</coverage>

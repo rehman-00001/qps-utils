@@ -4,11 +4,11 @@
 module.exports = {
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ['dist/**/*.js'],
+  collectCoverageFrom: ['src/**/*.js'],
   coverageDirectory: 'coverage',
   transform: {
     '^.+\\.(js|jsx)?$': 'babel-jest'
   },
   testEnvironment: 'node',
   testMatch: ['<rootDir>/test/**/*.test.js']
-}
+};

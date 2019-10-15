@@ -16,9 +16,9 @@ export function parseQueryString() {
   const { qMap } = context;
   queries.forEach(query => {
     const keyValuePair = query.split('=');
-    qMap[decodeURIComponent(keyValuePair[0])] = decodeURIComponent(
-      keyValuePair[1]
-    );
+    const decodedKey = decodeURIComponent(keyValuePair[0]);
+    let decodedValue = convertIfBoolean(decodeURIComponent(keyValuePair[1]));
+    qMap[decodedKey] = decodedValue;
   });
 
   const handles = {
@@ -56,4 +56,16 @@ export default function parse(url) {
     params: parseQueryString.bind(context)
   };
   return handles;
+}
+
+function convertIfBoolean(valueString) {
+  if (valueString === 'undefined')
+    return true;
+  if (valueString === 'null') 
+    return null;
+    
+  if (valueString === 'true' || valueString === 'false') {
+    return valueString === 'true';
+  }
+  return valueString;
 }

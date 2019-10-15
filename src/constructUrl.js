@@ -20,10 +20,19 @@ export default function constructUrl(queryParams) {
 
   const keysList = Object.keys(keyValueMap);
   keysList.forEach(key => {
-    url += `${delimiter}${encodeURIComponent(key)}=${encodeURIComponent(
-      keyValueMap[key]
-    )}`;
-    delimiter = '&';
+    const encodedKey = encodeURIComponent(key);
+    const value = keyValueMap[key];
+    if (Array.isArray(value)) {
+      value.forEach(valueItem => {
+        const encodedValue = encodeURIComponent(valueItem);
+        url += `${delimiter}${encodedKey}=${encodedValue}`;
+        delimiter = '&';        
+      })
+    } else {
+      const encodedValue = encodeURIComponent(value === '' ? true : value);
+      url += `${delimiter}${encodedKey}=${encodedValue}`;
+      delimiter = '&';
+    }
   });
 
   return url;

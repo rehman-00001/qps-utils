@@ -3,3 +3,4 @@ src
 test
 package-lock.json
 webpack.config.js
+coverage
